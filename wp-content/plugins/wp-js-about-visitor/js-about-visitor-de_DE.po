@@ -1,0 +1,54 @@
+# JS-About-Visitor POT file.
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-JS-About-Visitor 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-07 18:01+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Joerg Schueler <j.schueler@gmx.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: js-about-visitor.php:42
+msgid "Service not available."
+msgstr "Dienst nicht verfügbar."
+
+#: js-about-visitor.php:57
+#: js-about-visitor.php:105
+msgid "About You"
+msgstr "Über dich"
+
+#: js-about-visitor.php:81
+msgid "IP"
+msgstr "IP"
+
+#: js-about-visitor.php:84
+#: js-about-visitor.php:124
+msgid "Location"
+msgstr "Land"
+
+#: js-about-visitor.php:90
+#: js-about-visitor.php:125
+msgid "Browser"
+msgstr "Browser"
+
+#: js-about-visitor.php:93
+#: js-about-visitor.php:126
+msgid "OS"
+msgstr "OS"
+
+#: js-about-visitor.php:121
+msgid "Widget Title"
+msgstr "Widget Titel"
+
+#: js-about-visitor.php:123
+msgid "IP-Address"
+msgstr "IP-Adresse"
+

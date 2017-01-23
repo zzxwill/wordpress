@@ -1,0 +1,57 @@
+# JS-About-Visitor POT file.
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-JS-About-Visitor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-07 18:01+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: FatCow <zhr@tut.by>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: js-about-visitor.php:42
+msgid "Service not available."
+msgstr "Сервис недоступен."
+
+#: js-about-visitor.php:57
+#: js-about-visitor.php:105
+msgid "About You"
+msgstr "О вас"
+
+#: js-about-visitor.php:81
+msgid "IP"
+msgstr "IP"
+
+#: js-about-visitor.php:84
+#: js-about-visitor.php:124
+msgid "Location"
+msgstr "Месторасположение"
+
+#: js-about-visitor.php:90
+#: js-about-visitor.php:125
+msgid "Browser"
+msgstr "Браузер"
+
+#: js-about-visitor.php:93
+#: js-about-visitor.php:126
+msgid "OS"
+msgstr "ОС"
+
+#: js-about-visitor.php:121
+msgid "Widget Title"
+msgstr "Название виджета"
+
+#: js-about-visitor.php:123
+msgid "IP-Address"
+msgstr "IP-адрес"
+

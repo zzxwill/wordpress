@@ -1,0 +1,32 @@
+/* CSS Document */
+.cj_latest_visitors{
+	 border: 0px none ;
+	 margin: 0pt; 
+	 padding: 0pt; 
+	 background: transparent none repeat scroll 0% 0%; 
+	 overflow: hidden; 
+	 line-height: normal; 
+	
+	 font-style: normal; 
+	 font-variant: normal; 
+	 font-weight: normal; 
+	 font-size: 10px; 
+	 
+	 font-stretch: normal;
+	
+	 color: rgb(153, 153, 153); 
+	 text-decoration: none; 
+	 text-indent: 0pt; 
+	 position: relative; 
+	 
+}
+
+.cj_left{
+	background: transparent none repeat scroll 0% 0%; text-align: right; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; line-height: 120%;" width="50%"
+}
+.cj_single{
+	background-color: transparent;
+}
+.cj_double{
+	background-color: transparent; 
+}
