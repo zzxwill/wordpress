@@ -3,7 +3,7 @@
 Plugin Name: Landing sites
 Plugin URI: http://wordpress.org/extend/plugins/landing-sites/
 Description: When visitors is referred to your site from a search engine, the plugin is showing them related posts to their search on your blog.
-Version: 1.5.1
+Version: 1.5.2
 Author: devil1591
 */
 

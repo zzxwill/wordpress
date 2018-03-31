@@ -2,27 +2,25 @@
 
 class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 
-	static function setUpBeforeClass() {
+	public static function setUpBeforeClass() {
 		add_filter( 'pcf_text', array( c2c_PreserveCodeFormatting::get_instance(), 'preserve_preprocess' ), 2 );
 		add_filter( 'pcf_text', array( c2c_PreserveCodeFormatting::get_instance(), 'preserve_postprocess_and_preserve' ), 100 );
 	}
 
-	function setUp() {
+	public function setUp() {
 		parent::setUp();
 		$this->set_option();
 	}
 
 
-
-	/**
-	 *
-	 * DATA PROVIDERS
-	 *
-	 */
-
+	//
+	//
+	// DATA PROVIDERS
+	//
+	//
 
 
-	public static function get_preserved_tags( $more_tags = array() ) {
+	 public static function get_preserved_tags( $more_tags = array() ) {
 		return array(
 			array( 'code' ),
 			array( 'pre' ),
@@ -37,13 +35,11 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 	}
 
 
-
-	/**
-	 *
-	 * HELPER FUNCTIONS
-	 *
-	 */
-
+	//
+	//
+	// HELPER FUNCTIONS
+	//
+	//
 
 
 	private function set_option( $settings = array() ) {
@@ -64,19 +60,37 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 	}
 
 
+	//
+	//
+	// TESTS
+	//
+	//
 
-	/**
-	 *
-	 * TESTS
-	 *
-	 */
 
+	public function test_class_exists() {
+		$this->assertTrue( class_exists( 'c2c_PreserveCodeFormatting' ) );
+	}
 
+	public function test_plugin_framework_class_name() {
+		$this->assertTrue( class_exists( 'c2c_PreserveCodeFormatting_Plugin_041' ) );
+	}
+
+	public function test_plugin_framework_version() {
+		$this->assertEquals( '041', c2c_PreserveCodeFormatting::get_instance()->c2c_plugin_version() );
+	}
+
+	public function test_get_version() {
+		$this->assertEquals( '3.7', c2c_PreserveCodeFormatting::get_instance()->version() );
+	}
+
+	public function test_instance_object_is_returned() {
+		$this->assertTrue( is_a( c2c_PreserveCodeFormatting::get_instance(), 'c2c_PreserveCodeFormatting' ) );
+	}
 
 	/**
 	 * @dataProvider get_preserved_tags
 	 */
-	function test_html_tags_are_preserved_in_preserved_tag( $tag ) {
+	public function test_html_tags_are_preserved_in_preserved_tag( $tag ) {
 		$code = '<strong>bold</strong> other markup <i>here</i>';
 		$text = "Example <code>$code</code>";
 
@@ -89,7 +103,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider get_preserved_tags
 	 */
-	function test_special_characters_are_preserved_in_preserved_tag( $tag ) {
+	public function test_special_characters_are_preserved_in_preserved_tag( $tag ) {
 		$code = "first\r\nsecond\rthird\n\n\n\n\$fourth\nfifth<?php test(); ?>";
 		$text = "Example <code>$code</code>";
 		$expected_code = "first\nsecond\nthird\n\n\$fourth\nfifth&lt;?php test(); ?&gt;";
@@ -103,7 +117,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider get_preserved_tags
 	 */
-	function test_tabs_are_replaced_in_preserved_tag( $tag ) {
+	public function test_tabs_are_replaced_in_preserved_tag( $tag ) {
 		$code = "\tfirst\n\t\tsecond";
 		$text = "Example <code>$code</code>";
 
@@ -116,7 +130,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider get_preserved_tags
 	 */
-	function test_spaces_are_preserved_in_preserved_tag( $tag ) {
+	public function test_spaces_are_preserved_in_preserved_tag( $tag ) {
 		$text = "Example <$tag>preserve  multiple  spaces</$tag>";
 
 		$this->assertEquals(
@@ -125,7 +139,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 		);
 	}
 
-	function test_spaces_are_not_preserved_in_unhandled_tag() {
+	public function test_spaces_are_not_preserved_in_unhandled_tag() {
 		$tag = 'strong';
 		$text = "Example <$tag>preserve  multiple  spaces</$tag>";
 
@@ -135,7 +149,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider get_preserved_tags
 	 */
-	function test_space_is_not_replaced_with_nbsp_if_false_for_setting_use_nbsp_for_spaces( $tag ) {
+	public function test_space_is_not_replaced_with_nbsp_if_false_for_setting_use_nbsp_for_spaces( $tag ) {
 		$this->set_option( array( 'use_nbsp_for_spaces' => false ) );
 
 		$text = "Example <$tag>preserve  multiple  spaces</$tag>";
@@ -143,19 +157,19 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 		$this->assertEquals( $text, $this->preserve( $text ) );
 	}
 
-	function test_multiline_code_gets_wrapped_in_pre() {
+	public function test_multiline_code_gets_wrapped_in_pre() {
 		$text = "<code>some code\nanother line\n yet another</code>";
 
 		$this->assertEquals( "Example <pre>$text</pre>", $this->preserve( 'Example ' . $text ) );
 	}
 
-	function test_multiline_pre_does_not_get_wrapped_in_pre() {
+	public function test_multiline_pre_does_not_get_wrapped_in_pre() {
 		$text = "Example <pre>some code\nanother line\n yet another</pre>";
 
 		$this->assertEquals( $text, $this->preserve( $text ) );
 	}
 
-	function test_multiline_code_not_wrapped_in_pre_if_setting_wrap_multiline_code_in_pre_is_false() {
+	public function test_multiline_code_not_wrapped_in_pre_if_setting_wrap_multiline_code_in_pre_is_false() {
 		$this->set_option( array( 'wrap_multiline_code_in_pre' => false ) );
 
 		$text = "Example <code>some code\nanother line\n yet another</code>";
@@ -163,7 +177,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 		$this->assertEquals( $text, $this->preserve( $text ) );
 	}
 
-	function test_nl2br_setting() {
+	public function test_nl2br_setting() {
 		$this->set_option( array( 'nl2br' => true ) );
 
 		$text = "<code>some code\nanother line\n yet another</code>";
@@ -171,7 +185,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 		$this->assertEquals( str_replace( "\n", "<br />\n", "Example <pre>$text</pre>" ), $this->preserve( 'Example ' . $text ) );
 	}
 
-	function test_code_preserving_honors_setting_preserve_tags() {
+	public function test_code_preserving_honors_setting_preserve_tags() {
 		$this->set_option( array( 'preserve_tags' => array( 'pre', 'strong' ) ) );
 		$text = "<TAG>preserve  multiple  spaces</TAG>";
 
@@ -187,7 +201,7 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider get_default_filters
 	 */
-	function test_filters_default_filters( $filter ) {
+	public function test_filters_default_filters( $filter ) {
 		$code = '<strong>bold</strong> other markup <i>here</i>';
 		$text = "Example <code>$code</code>";
 
@@ -195,6 +209,15 @@ class Preserve_Code_Formatting_Test extends WP_UnitTestCase {
 			wpautop( 'Example <code>' . htmlspecialchars( $code, ENT_QUOTES ) . '</code>' ),
 			$this->preserve( $text, $filter )
 		);
+	}
+
+	public function test_uninstall_deletes_option() {
+		$option = 'c2c_preserve_code_formatting';
+		c2c_PreserveCodeFormatting::get_instance()->get_options();
+
+		c2c_PreserveCodeFormatting::uninstall();
+
+		$this->assertFalse( get_option( $option ) );
 	}
 
 }

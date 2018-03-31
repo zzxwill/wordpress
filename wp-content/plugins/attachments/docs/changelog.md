@@ -3,6 +3,42 @@ This is a WordPress plugin. [Official download available on WordPress.org](http:
 ## [Docs TOC](TOC.md) / Changelog
 
 <dl>
+    <dt>3.5.8</dt>
+    <dd>Fixed a potential issue when migrating from Attachments Pro</dd>
+    <dt>3.5.7</dt>
+    <dd>Fixed a regression that prevented attaching multiple files at once</dd>
+    <dt>3.5.6</dt>
+    <dd>Fixed an issue where changing an Attachment on more than one Attachment would continually update the first Attachment</dd>
+    <dd>Media modal now includes filters (props marcochiesi)</dd>
+    <dd>Added German translation (props bessl)</dd>
+    <dd>Added filter to manipulate Attachments metadata before it's saved: <code>attachments_meta_before_save</code></dd>
+    <dd>Underscores are no longer enforced over hyphens</dd>
+    <dd>More entropy for Attachments uid's to prevent collisions (props sketchpad)</dd>
+    <dt>3.5.5</dt>
+    <dd>Fixed an issue where field values were improperly overwritten when the instance was set to prepend in some cases</dd>
+	<dt>3.5.4</dt>
+	<dd>Fixed assumption of field keys (props bukka)</dd>
+	<dd>Improved documentation (props Lane Goldberg, Roman Kokarev, Ore Landau)</dd>
+	<dd>Added <code>rewind()</code> method to reset Attachments reference array (props joost de keijzer)</dd>
+	<dd>TinyMCE fix to support WordPress 3.9+</dd>
+	<dd>Fixed an issue where nonce was potentially wrongly flagged as sent if an instance was filtered</dd>
+	<dd>Added <code>post_parent</code> argument support for instances, setting to <code>true</code> will populate the <strong>Uploaded to</strong> column in Media</dd>
+	<dd>New filter: <code>attachments_default_instance</code> to disable/enable the default instance (default is <code>true</code>, <code>ATTACHMENTS_DEFAULT_INSTANCE</code> constant is deprecated)</dd>
+	<dd>New filter: <code>attachments_settings_screen</code> to hide/show the settings screen (default is <code>true</code>, <code>ATTACHMENTS_SETTINGS_SCREEN</code> constant is deprecated)</dd>
+	<dd>Fixed an issue where Attachments meta box(es) would not show up when creating new posts whose <code>post_type</code> had a dash in it</dd>
+	<dd>Updated Italian translation (props Luca Speranza)</dd>
+
+	<dt>3.5.3</dt>
+	<dd>Fixed a Fatal error when deleting Media that was attached to a post (props Clearsite)</dd>
+	<dd>Warning cleanup</dd>
+
+	<dt>3.5.2</dt>
+	<dd>Added ability to force an instance name</dd>
+	<dd>Documentation updates</dd>
+	<dd>Warning and Notice cleanup</dd>
+	<dd>Fixed an issue with newline character retrieval</dd>
+	<dd>Fixed assumption of array (props Jakub Zelenka)</dd>
+
     <dt>3.5.1.1</dt>
     <dd>Fixed an issue where Featured Images may have become inadvertently disabled, props @deborre</dd>
 

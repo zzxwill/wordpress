@@ -4,9 +4,9 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: code, formatting, post body, content, display, writing, escape, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 3.5
+Requires at least: 4.1
+Tested up to: 4.5
+Stable tag: 3.7
 
 Preserve formatting of code for display by preventing its modification by WordPress and other plugins while also retaining whitespace.
 
@@ -53,7 +53,7 @@ VALUES ('$post_id','link','$extended')
 &#8213;);
 `
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/preserve-code-formatting/) | [Plugin Directory Page](http://wordpress.org/plugins/preserve-code-formatting/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/preserve-code-formatting/) | [Plugin Directory Page](https://wordpress.org/plugins/preserve-code-formatting/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -86,6 +86,48 @@ Yes.
 
 
 == Changelog ==
+
+= 3.7 (2016-03-29) =
+Highlights:
+* This release largely consists of minor behind-the-scenes changes.
+
+Details:
+* Change: Update plugin framework to 041
+    * Change class name to c2c_PreserveCodeFormatting_Plugin_041 to be plugin-specific
+    * Set textdomain using a string instead of a variable
+    * Don't load textdomain from file
+    * Change admin page header from 'h2' to 'h1' tag
+    * Add `c2c_plugin_version()`
+    * Formatting improvements to inline docs
+* Change: Add support for language packs:
+    * Set textdomain using a string instead of a variable
+    * Don't load textdomain from file
+    * Remove .pot file and /lang subdirectory
+    * Remove 'Domain Path' from plugin header.
+* New: Add LICENSE file.
+* New: Add empty index.php to prevent files from being listed if web server has enabled directory listings.
+* Change: Declare class as final.
+* Change: Explicitly declare methods in unit tests as public or protected.
+* Change: Minor tweak to description.
+* Change: Minor code reformatting (spacing).
+* Change: Minor improvements to inline docs and test docs.
+* Change: Note compatibility through WP 4.5+.
+* Change: Remove support for WordPress older than 4.1.
+* Change: Update copyright date (2016).
+
+= 3.6 (2015-02-24) =
+* Cast some variable as array to avoid potential PHP warnings
+* Add more unit tests
+* Update plugin framework to 039
+* Explicitly declare `activation()` and `uninstall()` static
+* Reformat plugin header
+* Minor code reformatting (spacing, bracing)
+* Change documentation links to wp.org to be https
+* Minor documentation spacing changes throughout
+* Note compatibility through WP 4.1+
+* Update copyright date (2015)
+* Add plugin icon
+* Regenerate .pot
 
 = 3.5 (2014-01-11) =
 * Add setting to control if code should be preserved in posts (default is true)
@@ -216,6 +258,12 @@ Yes.
 
 
 == Upgrade Notice ==
+
+= 3.7 =
+Minor update: improve support for localization; verified compatibility through WP 4.5; removed compatibility with WP earlier than 4.1; updated copyright date (2016)
+
+= 3.6 =
+Minor update: added more unit tests; updated plugin framework to 039; noted compatibility through WP 4.1+; updated copyright date (2015); added plugin icon
 
 = 3.5 =
 Recommended update: fix bug where 'pre' tag could get wrapped in '<pre>' tag; added setting to disable preserving code in posts; added unit tests; updated plugin framework; compatibility now WP 3.6-3.8+
